@@ -65,6 +65,10 @@ export default ({
                         style={{ marginTop: 20 }}>
                         {description}
                     </Typography>
+                    <Typography
+                        variant='h6'>
+                        {id}
+                    </Typography>
                 </Paper>
             </Grid>
 

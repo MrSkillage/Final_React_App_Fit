@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import { Home } from './Components/Pages/index';
+import { Home, Create, Read } from './Components/Pages/index';
 
 class App extends Component {
   render() {
@@ -19,12 +19,15 @@ class App extends Component {
             <Nav className="mr-auto">
               <Nav.Link href="/home">Home</Nav.Link>
               <Nav.Link href="/create">Create</Nav.Link>
+              <Nav.Link href="/read">Read</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
             </Nav>
           </Navbar>
 
           <Switch>
             <Route exact path='/home' component={Home} />
+            <Route path='/create' component={Create} />
+            <Route path='/read' component={Read} />
           </Switch>
         </div>
       </Router>
