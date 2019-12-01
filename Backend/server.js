@@ -105,11 +105,9 @@ app.put('/api/exercises/:id', (req, res)=> {
 })
 
 //Gets exercise by ID and then deletes it
-app.delete('/api/exercise/:id', (req, res)=> {
+app.delete('/api/exercises/:id', (req, res)=> {
     console.log(req.params.id);
     ExerciseModel.deleteOne({_id: req.params.id}, (error, data) =>{
-        if (err)
-            res.send(err);
         res.json(data);
     })
 })
