@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import Exercises from '../Exercises/Exercises';
 import Axios from 'axios';
 
+/*
+    Read function calls DidMount and uses Axios to retrieve the database information as json
+    it is then parsed on the server and the information is set to the state {exercise}
+    Renders a call of the Exercise component giving it the newly updated state {exercise}
+*/
+
 class Read extends Component {
 
     state = {

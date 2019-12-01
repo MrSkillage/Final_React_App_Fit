@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 
-class Edit extends Component {
+/*  Simple class used to display the old information of the requested edited file
+    and retrives the newly added information and updates it into the data states
+*/
 
+class Edit extends Component {
+    
     constructor() {
         super();
 
+        //Calls and Binds all functions used to change the newly entered information
         this.onChangeName = this.onChangeName.bind(this);
         this.onChangeType = this.onChangeType.bind(this);
         this.onChangeMuscle = this.onChangeMuscle.bind(this);
@@ -16,6 +21,7 @@ class Edit extends Component {
         this.onChangeImg_2 = this.onChangeImg_2.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
 
+        //Sets state to empty initially
         this.state = {
             _id: '',
             name: '',
@@ -29,6 +35,9 @@ class Edit extends Component {
         }
     }
 
+    /*Used to retrieve the data once the Component has been called (Mounted)
+        Sets the state equal to all the newly retrieve data
+    */
     componentDidMount() {
         Axios.get('http://localhost:4000/api/exercises/' + this.props.match.params.id)
             .then(response => {
@@ -80,6 +89,7 @@ class Edit extends Component {
         this.setState({ img_2: event.target.value })
     }
 
+    //Handles the submission of data after button is pressed
     handleSubmit(event) {
         event.preventDefault();
 
@@ -95,10 +105,11 @@ class Edit extends Component {
             img_2: this.state.img_2
         }
 
+        //Calls axios.put function located on server.js and adds the current _id to the end of it
         Axios.put('http://localhost:4000/api/exercises/' + this.state._id, newExercise)
             .then()
             .catch();
-
+        //Resets the state to empty strings so they can be used again later
         this.state = {
             _id: '',
             name: '',
@@ -113,6 +124,7 @@ class Edit extends Component {
 
     }
 
+    //Renders a component akin to the Create Component used to retrive the new information the user wishes to enter
     render() {
         return (
             <div className="Edit">

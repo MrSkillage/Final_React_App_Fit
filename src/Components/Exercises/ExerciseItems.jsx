@@ -4,6 +4,7 @@ import Image from 'react-bootstrap/Image';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 
+//Styles used for Paper and Image instead of created a new css file
 const styles = {
     Paper: {
         padding: 20,
@@ -19,18 +20,26 @@ const styles = {
 
 class ExerciseItems extends Component {
 
+    //constructor binds the delete function 
     constructor() {
         super();
         this.DeleteExercise = this.DeleteExercise.bind(this);
     }
 
+    //Delete function 
     DeleteExercise(del){
+        /* Used for Debugging
         console.log("Delete Clicked!");
+        */
+       //Axios called on the delte function located in server.js and passes it the id of the selected exercise
         Axios.delete('http://localhost:4000/api/exercises/'+this.props.exercise._id)
         .then()
         .catch();
     }
 
+    /*  Renders all the gathered information from the server database and lays
+        it out to be viewed asteically
+    */
     render() {
         return (
             <div className="ExerciseItems">
@@ -80,15 +89,11 @@ class ExerciseItems extends Component {
                                 Rating: {this.props.exercise.rating}
                             </Typography>
                         </ListItem>
+                        <ListItem>
+                            <Button variant="contained" color="secondary" onClick={this.DeleteExercise}>Delete</Button>
+                            <Link to={"/edit/" + this.props.exercise._id} className="btn btn-primary">Update</Link>
+                        </ListItem>
                     </List>
-
-                    <ButtonGroup 
-                        variant="contained" 
-                        aria-label="full-width contained primary button group"
-                    >
-                        <Button color="secondary" onClick={this.DeleteExercise}>Delete</Button>
-                        <Link to={"/edit/" + this.props.exercise._id} className="btn btn-primary">Update</Link>
-                    </ButtonGroup>
 
                     <Image style={styles.Image} src={this.props.exercise.img_1} rounded fluid />
                     <Image style={styles.Image} src={this.props.exercise.img_2} rounded fluid />
