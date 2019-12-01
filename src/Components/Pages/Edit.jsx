@@ -195,7 +195,7 @@ class Edit extends Component {
                     </div>
 
                     <div className="form-group">
-                        <input type="submit" value="Add Exercise" className="btn btn-primary" />
+                        <input type="submit" value="Update Exercise" className="btn btn-primary" />
                     </div>
 
                 </form>

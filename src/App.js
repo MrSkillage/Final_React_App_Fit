@@ -16,16 +16,16 @@ class App extends Component {
 
         <div className="App">
           <Navbar bg="primary" variant="dark" >
-            <Navbar.Brand href="/home">GYM-FIT</Navbar.Brand>
+            <Navbar.Brand href="/homepage">GYM-FIT</Navbar.Brand>
             <Nav className="mr-auto">
-              <Nav.Link href="/home">Home</Nav.Link>
-              <Nav.Link href="/create">Create</Nav.Link>
+              <Nav.Link href="/homepage">Home</Nav.Link>
+              <Nav.Link href="/addExercise">Add Exercise</Nav.Link>
             </Nav>
           </Navbar>
 
           <Switch>
-            <Route exact path='/home' component={Homepage} />
-            <Route path='/create' component={Create} />
+            <Route exact path='/homepage' component={Homepage} />
+            <Route path='/addExercise' component={Create} />
             <Route path="/edit/:id" component={Edit} />
           </Switch>
         </div>
