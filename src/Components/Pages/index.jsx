@@ -1,8 +1,7 @@
 import Create from './Create';
 import Home from './Home';
-import Read from './Read';
-import MovieItem from './MovieItem';
+import Homepage from './Homepage';
 
 export {
-    Create, Home, Read, MovieItem
+    Create, Home, Homepage
 }

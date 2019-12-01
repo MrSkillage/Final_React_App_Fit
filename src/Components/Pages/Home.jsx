@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Footer } from '../index';
 import { Main } from '../Exercises/index';
 import { muscles, exercises } from '../../store';
+import Axios from 'axios';
 
 
 export default class Home extends Component {
@@ -9,7 +10,7 @@ export default class Home extends Component {
     state = {
         exercises,
         category: '',
-        exercise: []
+        exercise: [],
     }
 
     getExercisesByMuscles() {
@@ -40,8 +41,7 @@ export default class Home extends Component {
 
     render() {
 
-        const exercises = this.getExercisesByMuscles(),
-            { category, exercise } = this.state;
+        const exercises = this.getExercisesByMuscles(), { category, exercise } = this.state;
 
         return(
             <div className="Home">
