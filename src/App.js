@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import { Navbar, Nav } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
 import { Home, Create, Homepage } from './Components/Pages/index';
 import Edit from './Components/Pages/Edit';
 
+/*  Uses a BrowserRouter, Navbar and Switch to alternated between paages via the navbar at the top of the window
+*/
 class App extends Component {
   render() {
     return (
