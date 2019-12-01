@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import { Home, Create, Homepage } from './Components/Pages/index';
 import Read from './Components/Pages/Read';
+import Edit from './Components/Pages/Edit';
 
 class App extends Component {
   render() {
@@ -28,6 +29,7 @@ class App extends Component {
             <Route exact path='/home' component={Homepage} />
             <Route path='/create' component={Create} />
             <Route path="/read" component={Read} />
+            <Route path="/edit/:id" component={Edit} />
           </Switch>
         </div>
       </Router>

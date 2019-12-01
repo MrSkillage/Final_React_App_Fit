@@ -96,7 +96,7 @@ app.put('/api/exercises/:id', (req, res)=> {
     console.log(req.body);
 
     ExerciseModel.findByIdAndUpdate(
-        req,params.id, 
+        req.params.id, 
         req.body, 
         {new:true}, 
         (error, data)=>{
@@ -108,6 +108,8 @@ app.put('/api/exercises/:id', (req, res)=> {
 app.delete('/api/exercise/:id', (req, res)=> {
     console.log(req.params.id);
     ExerciseModel.deleteOne({_id: req.params.id}, (error, data) =>{
+        if (err)
+            res.send(err);
         res.json(data);
     })
 })

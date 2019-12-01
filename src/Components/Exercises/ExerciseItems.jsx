@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Paper, Typography, List, ListItem, Button, ButtonGroup } from '@material-ui/core';
 import Image from 'react-bootstrap/Image';
 import Axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const styles = {
     Paper: {
@@ -86,7 +87,7 @@ class ExerciseItems extends Component {
                         aria-label="full-width contained primary button group"
                     >
                         <Button color="secondary" onClick={this.DeleteExercise}>Delete</Button>
-                        <Button color="primary">Update</Button>
+                        <Link to={"/edit/" + this.props.exercise._id} className="btn btn-primary">Update</Link>
                     </ButtonGroup>
 
                     <Image style={styles.Image} src={this.props.exercise.img_1} rounded fluid />
